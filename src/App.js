@@ -1,6 +1,8 @@
+import BackGroundChanger from "./myComponent/BackGroundChanger";
+
 function App() {
   return (
-    <h1>This is the heading in App Component.</h1>
+    <BackGroundChanger/>
   );
 }
 
