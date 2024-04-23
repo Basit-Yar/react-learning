@@ -1,8 +1,10 @@
 import BackGroundChanger from "./myComponent/BackGroundChanger";
+import PasswordGenerator from "./myComponent/PasswordGenerator";
 
 function App() {
   return (
-    <BackGroundChanger/>
+    // <BackGroundChanger/>
+    <PasswordGenerator />
   );
 }
 
