@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 export default function () {
+
+    // useState hook
     const [length, setLength] = useState(6);
     const [isNumAllowed, setIsNumAllowed] = useState(false);
     const [isSpecialCharAllowed, setIsSpecialCharAllowed] = useState(false);
     const [password, setPassword] = useState("");
 
+    // useEffect hook
     useEffect(() => {
 
         generatePassword();
 
     }, [length, isNumAllowed, isSpecialCharAllowed]);
+
+    // useRef hook
+    const passwordRef = useRef(null);
 
     let generatePassword = () => {
 
@@ -36,19 +42,29 @@ export default function () {
         // console.log("the passWord is : " + pass);
         setPassword(pass);
     }
-    // generatePassword();
+
+    let copyToClipBoard = () => {
+        window.navigator.clipboard.writeText(password);
+        passwordRef.current?.select();
+    }
 
     return (
         <>
-            <div className="m-2">
+            <div className="vw-100 vh-100 m-2 center">
                 {/* <h1>This is Password Generator Component.</h1> */}
-                <div>
-                    <div>
+                <div className="col-md-7 border border-2 border-dark py-md-4 px-md-3">
+                    <div className="d-flex align-items-center">
                         <input
                             value={password}
-                            type="text" className="col-md-5 text-primary fw-bold"
+                            type="text" className="col-md-6 text-primary fw-bold"
+                            ref={passwordRef}
                         />
-                        <button type="button" className="btn btn-success btn-same-size">Copy</button>
+                        <button
+                            onClick={copyToClipBoard}
+                            type="button"
+                            className="btn btn-success btn-same-size">
+                            Copy
+                        </button>
                     </div>
 
                     <br />
@@ -56,10 +72,10 @@ export default function () {
                         onChange={(e) => { setLength(e.target.value) }}
                         type="range" name="" id="length"
                         min={6} max={16}
-                        className="col-md-3"
+                        className="col-md-6"
                         value={length}
                     />
-                    <label htmlFor="length" className="mx-3">Length of Password : {length}</label>
+                    <label htmlFor="length" className="mx-3">Length of Password : <span className="text-primary fw-bold">{length}</span></label>
 
                     <br />
                     <input
