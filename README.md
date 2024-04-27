@@ -72,4 +72,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # react-learning
 This is the first react learning repo to learn the react and includes some minor projects which aims to make a command on react.
->>>>>>> 91a61e1aced8a3dd9999a8c4c7416a9a4f4ca151
