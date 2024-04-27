@@ -52,11 +52,11 @@ export default function () {
         <>
             <div className="vw-100 vh-100 m-2 center">
                 {/* <h1>This is Password Generator Component.</h1> */}
-                <div className="col-md-7 border border-2 border-dark py-md-4 px-md-3">
+                <div className="col-sm-7 border border-2 border-dark py-sm-4 px-sm-3">
                     <div className="d-flex align-items-center">
                         <input
                             value={password}
-                            type="text" className="col-md-6 text-primary fw-bold"
+                            type="text" className="col-sm-6 text-primary fw-bold"
                             ref={passwordRef}
                         />
                         <button
@@ -72,7 +72,7 @@ export default function () {
                         onChange={(e) => { setLength(e.target.value) }}
                         type="range" name="" id="length"
                         min={6} max={16}
-                        className="col-md-6"
+                        className="col-sm-6"
                         value={length}
                     />
                     <label htmlFor="length" className="mx-3">Length of Password : <span className="text-primary fw-bold">{length}</span></label>
