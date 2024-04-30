@@ -7,7 +7,9 @@ export default function InputBox({
     isAmountDisable,
     amount,
     onAmountChange,
-    onCurrencyChange
+    onCurrencyChange,
+    currencyOption = [],
+    currencyValue
 }) {
 
     return (
@@ -24,12 +26,20 @@ export default function InputBox({
                     />
                 </div>
                 <div className="col-6 d-flex flex-column align-items-end">
-                    <label htmlFor="">
+                    <label>
                         <span>Currency Type</span>
                     </label>
-                    <select id="">
-                        <option value="">usd</option>
-                        <option value="">inr</option>
+                    <select
+                        value={currencyValue}
+                        onChange={(e) => { onCurrencyChange && onCurrencyChange(e.target.value) }}
+                    >
+
+                        {currencyOption.map((currency) => {
+                            return <option key={currency} value={currency}>
+                                {currency}
+                            </option>
+                        })}
+                        
                     </select>
                 </div>
             </div>
