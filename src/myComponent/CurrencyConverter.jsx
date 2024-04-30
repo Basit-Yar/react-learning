@@ -29,18 +29,24 @@ function CurrencyConverter() {
                 amount={amount}
                 isAmountDisable={false}
                 onAmountChange={(amt) => setAmount(amt)}
-                onCurrencyChange={(currency) => setFromCurrency(currency)}
+                onCurrencyChange={(currency) => {
+                    setFromCurrency(currency)
+                    setConvertedAmount("")
+                }}
                 currencyOption={options}
                 currencyValue={fromCurrency}
             />
             <div className="center">
-                <button className="btn btn-info">Swap</button>
+                <button className="btn btn-info" onClick={() => alert("Swapping feature has not been implemented yet !")}>Swap</button>
             </div>
             <InputBox
                 label="To"
                 amount={convertedAmount}
                 isAmountDisable={true}
-                onCurrencyChange={(currency) => setToCurrency(currency)}
+                onCurrencyChange={(currency) => {
+                    setToCurrency(currency)
+                    setConvertedAmount("")
+                }}
                 currencyOption={options}
                 currencyValue={toCurrency}
             />
